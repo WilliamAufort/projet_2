@@ -118,13 +118,10 @@ Le code est organise comme suit :
   "pari-backtrack.ml"
   "main.ml"
   "appel_tseitin.ml"
-  "exemple tseitin"
+  "
   "tests.ml" -> Contient des tests pour verifier la correction
     des programmes, a ne pas confondre avec les moulinettes de
     tests.
-- un générateur aléatoire de formules
-- un génrateur aléatoire de fichiers 3 SAT.
- 
 *------------------------*
 V] Repartition du travail|
 *------------------------*

@@ -7,10 +7,10 @@ reset
 ### decommenter les 2 lignes ci-dessous pour engendrer un fichier pdf
 ### plutot qu`un dessin a l`ecran
 set term pdfcairo
-set output "normal_rand_unsat.pdf" # le nom du fichier qui est engendre
+set output "temps_exec_50_var.pdf" # le nom du fichier qui est engendre
 
-set title "Comparaison des temps d'execution moyens de tous les algorithmes"
-set xlabel "nombre de variables"
+set title "Temps d'execution moyens pour 50 varaibles en 3-Sat"
+set xlabel "nombre de clauses"
 set ylabel "Temps d'execution"
 
 
@@ -22,9 +22,9 @@ set logscale y
 
 # on trace deux courbes: avec les colonnes 1 et 2, avec les colonnes 1 et 3
 # a chaque fois, le nom de la courbe est lu en tete de colonne
-plot "comparaison.dat" using 1:2 title columnheader(2), \
-     "comparaison.dat" using 1:3 title columnheader(3), \
-     "comparaison.dat" using 1:4 title columnheader(4), \
-     "comparaison.dat" using 1:5 title columnheader(5), \
-     "comparaison.dat" using 1:6 title columnheader(6)
+plot "comparaison_50_var.dat" using 1:2 title columnheader(4), \
+     "comparaison_50_var.dat" using 1:3 title columnheader(5), \
+     "comparaison_50_var.dat" using 1:4 title columnheader(4), \
+     "comparaison_50_var.dat" using 1:5 title columnheader(5), \
+     "comparaison_50_var.dat" using 1:6 title columnheader(6)
 

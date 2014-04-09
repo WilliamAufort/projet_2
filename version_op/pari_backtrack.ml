@@ -116,19 +116,19 @@ let clautaillmin_2 nbvar nblitf t_cl_v =
 let pari_moms2 tab_aff nbvar nblitf tabclau t_cl_v tab_act_pos tab_act_neg=
 let clmins = clautaillmin_2 nbvar nblitf t_cl_v in
 let (pos,neg)= occur_liste clmins tabclau nbvar in
-	let rec p numvar min pc= if (numvar= Array.length tab_aff)
+	let rec p numvar max pc= if (numvar= Array.length tab_aff)
 				then pc
 				else match tab_aff.(numvar) with
-					| Vrai ->  p (numvar+1) min pc
-					| Faux ->  p (numvar+1) min pc
+					| Vrai ->  p (numvar+1) max pc
+					| Faux ->  p (numvar+1) max pc
 					| Inconnu -> if pos.(numvar) > neg.(numvar)
-							then (if pos.(numvar) > min
+							then (if pos.(numvar) > max
 								then p (numvar+1) pos.(numvar) numvar
-								else p (numvar+1) min pc)
-							else (if neg.(numvar) > min
+								else p (numvar+1) max pc)
+							else (if neg.(numvar) > max
 								then p (numvar+1) neg.(numvar) (-numvar)
-								else p (numvar+1) min pc)
-in p 0 0 0
+								else p (numvar+1) max pc)
+in p 1 0 0
 ;;
 
 (* Heuristique DLIS *)
