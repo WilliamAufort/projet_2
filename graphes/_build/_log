@@ -1,0 +1,34 @@
+### Starting build.
+# Target: main.ml.depends, tags: { extension:ml, file:main.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules main.ml > main.ml.depends # cached
+# Target: graphe.ml.depends, tags: { extension:ml, file:graphe.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules graphe.ml > graphe.ml.depends # cached
+# Target: graphe.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:graphe.cmo, file:graphe.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o graphe.cmo graphe.ml # cached
+# Target: lexer_graphe.mll, tags: { extension:mll, file:lexer_graphe.mll, lexer, ocaml, ocamllex, quiet }
+/usr/bin/ocamllex -q lexer_graphe.mll # cached
+# Target: lexer_graphe.ml.depends, tags: { extension:ml, file:lexer_graphe.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules lexer_graphe.ml > lexer_graphe.ml.depends # cached
+# Target: parser_graphe.mly, tags: { extension:mly, file:parser_graphe.mly, ocaml, ocamlyacc, parser, quiet }
+/usr/bin/ocamlyacc -v parser_graphe.mly
+# Target: parser_graphe.mli.depends, tags: { extension:mli, file:parser_graphe.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules parser_graphe.mli > parser_graphe.mli.depends
+# Target: parser_graphe.cmi, tags: { byte, compile, extension:mli, file:parser_graphe.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc -c -o parser_graphe.cmi parser_graphe.mli
+# Target: lexer_graphe.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:lexer_graphe.cmo, file:lexer_graphe.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o lexer_graphe.cmo lexer_graphe.ml # cached
+# Target: main.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:main.cmo, file:main.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o main.cmo main.ml # cached
+# Target: graphe.cmx, tags: { compile, extension:cmx, extension:ml, file:graphe.cmx, file:graphe.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o graphe.cmx graphe.ml # cached
+# Target: parser_graphe.ml.depends, tags: { extension:ml, file:parser_graphe.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules parser_graphe.ml > parser_graphe.ml.depends
+# Target: parser_graphe.cmx, tags: { compile, extension:cmx, extension:ml, file:parser_graphe.cmx, file:parser_graphe.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o parser_graphe.cmx parser_graphe.ml
+# Target: lexer_graphe.cmx, tags: { compile, extension:cmx, extension:ml, file:lexer_graphe.cmx, file:lexer_graphe.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o lexer_graphe.cmx lexer_graphe.ml
+# Target: main.cmx, tags: { compile, extension:cmx, extension:ml, file:main.cmx, file:main.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o main.cmx main.ml
+# Target: main.native, tags: { dont_link_with, extension:native, file:main.native, link, native, ocaml, program, quiet }
+/usr/bin/ocamlopt unix.cmxa graphe.cmx parser_graphe.cmx lexer_graphe.cmx main.cmx -o main.native
+# Compilation successful.
